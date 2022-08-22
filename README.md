@@ -9,7 +9,7 @@ A simple Solr package for a question answering engine
 
 * Add repository:
 
-    `bin/solr package add-repo chatman-qa "https://raw.githubusercontent.com/chatman/question-answering/master/repo/"`
+    `bin/solr package add-repo gerlowskija-jaxrs "https://raw.githubusercontent.com/gerlowskija/jax-rs-solr-plugins/master/repo/"`
 
 * See available packages:
 
@@ -17,19 +17,19 @@ A simple Solr package for a question answering engine
 
 * Install the package
 
-    `bin/solr package install question-answering`
+    `bin/solr package install jaxrs-plugins`
 
-* Create a collection and add a document
+* Create a collection
 
-    `curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=facts&numShards=1" && curl -XPOST -d '[{"id": 1, "name_t":"Japan", "type_s": "country", "capital_s": "Tokyo"}]' "http://localhost:8983/solr/facts/update?commit=true"`
+    `curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=plugintestcoll&numShards=1"`
 
 * Deploy package on the collection
 
-    `bin/solr package deploy question-answering -y -collections facts -p RH-HANDLER-PATH=/qa`
+    `bin/solr package deploy jaxrs-plugins -y -collections plugintestcoll -p RH-HANDLER-PATH=/somecorepathv1`
 
-* Use the plugin
+* Use the plugins V2 API
 
-    `curl "http://localhost:8983/solr/facts/qa?q=what%20is%20the%20capital%20of%20japan"`
+    `curl "http://localhost:8983/api/collections/plugintestcoll/somecorepath"`
 
 ## Development
 
