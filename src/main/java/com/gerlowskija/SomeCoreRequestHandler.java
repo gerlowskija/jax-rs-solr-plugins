@@ -66,7 +66,7 @@ public class SomeCoreRequestHandler extends RequestHandlerBase {
 
   @Override
   public Boolean registerV2() {
-    return Boolean.FALSE;
+    return Boolean.TRUE;
   }
 
   @Override
