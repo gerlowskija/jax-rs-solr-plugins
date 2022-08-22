@@ -1,11 +1,11 @@
 {
-    "version-constraint": "8 - 9",
+    "version-constraint": "8 - 10",
     "plugins": [
       {
         "name": "request-handler",
         "setup-command": {
           "path": "/api/collections/${collection}/config",
-          "payload": {"add-requesthandler": {"name": "${RH-HANDLER-PATH}", "class": "question-answering:com.chattopadhyaya.QARequestHandler"}},
+          "payload": {"add-requesthandler": {"name": "${RH-HANDLER-PATH}", "class": "jaxrs-plugins:com.gerlowskija.SomeCoreRequestHandler"}},
           "method": "POST"
         },
         "uninstall-command": {
@@ -22,6 +22,6 @@
       }
     ],
     "parameter-defaults": {
-      "RH-HANDLER-PATH": "/qa"
+      "RH-HANDLER-PATH": "/somecorepathv1"
     }
 }
